@@ -4,26 +4,65 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Personal portfolio — cybersecurity researcher, grad student, car builder, content creator." />
+  <meta name="theme-color" content="#07080f" />
   <title>// Marwan Aldahmani — Researcher & Builder</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
+  <!-- Background: honeycomb lattice that "beats" with the hero pulse -->
+  <div class="bg-lattice" aria-hidden="true">
+    <svg width="100%" height="100%">
+      <defs>
+        <pattern id="hexLattice" width="42" height="24.25" patternUnits="userSpaceOnUse">
+          <path d="M0 12.12 L7 0 L21 0 L28 12.12 L21 24.25 L7 24.25 Z M28 12.12 L42 12.12" fill="none" stroke="#a78bfa" stroke-width="0.8" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#hexLattice)" />
+    </svg>
+  </div>
+
   <!-- NAV -->
-  <nav class="nav" id="nav">
+  <nav class="nav" id="nav" aria-label="Main">
     <div class="nav-inner">
-      <span class="nav-logo">// <span class="accent">ARES</span></span>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <a href="#hero" class="nav-logo">// <span class="accent">ARES</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#research">Research</a></li>
+        <li class="nav-drop" id="projectsDrop">
+          <button type="button" class="nav-drop-toggle" id="projectsToggle" aria-expanded="false" aria-controls="projectsMenu">
+            Projects <span class="nav-caret" aria-hidden="true">▾</span>
+          </button>
+          <div class="nav-drop-menu" id="projectsMenu">
+            <p class="nav-drop-label" aria-hidden="true">[ SELECT OBJECT ]</p>
+            <a href="https://linkguard.spectator98.com" class="nav-drop-item nav-drop-item--live" target="_blank" rel="noopener">
+              <span>
+                <span class="nav-drop-name">LinkGuard <span aria-hidden="true" class="accent">↗</span></span>
+                <span class="nav-drop-desc">URL &amp; domain security scanner</span>
+              </span>
+              <span class="nav-drop-state state-live"><span class="ping-dot" aria-hidden="true"></span>ONLINE</span>
+            </a>
+            <a href="#build-shadow" class="nav-drop-item">
+              <span class="nav-drop-name">Codename Shadow</span>
+              <span class="nav-drop-state state-hold">ON HOLD</span>
+            </a>
+            <a href="#build-mushin" class="nav-drop-item">
+              <span class="nav-drop-name">Codename Mushin</span>
+              <span class="nav-drop-state state-closed">CLOSED</span>
+            </a>
+            <a href="#projects" class="nav-drop-item nav-drop-item--all">
+              <span class="nav-drop-desc">→ All projects</span>
+            </a>
+          </div>
+        </li>
         <li><a href="#builds">Builds</a></li>
         <li><a href="#hobbies">Hobbies</a></li>
         <li><a href="#connect">Connect</a></li>
@@ -33,29 +72,68 @@
 
   <!-- HERO -->
   <section class="hero" id="hero">
-    <div class="hero-bg-grid"></div>
-    <div class="hero-content">
-      <p class="hero-pre">[ INITIALIZING PORTFOLIO.EXE ]</p>
-      <h1 class="hero-name">MARWAN<br /><span class="accent glow">ALDAHMANI</span></h1>
-      <div class="hero-tagline">
-        <span class="typewriter">Cybersecurity Researcher&nbsp;·&nbsp;Grad Student&nbsp;·&nbsp;Builder</span>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-pre">[ SYSTEM CALL · INITIALIZING PORTFOLIO.EXE ]<span class="caret" aria-hidden="true">_</span></p>
+        <h1 class="hero-name">MARWAN<br /><span class="accent glow">ALDAHMANI</span></h1>
+        <div class="hero-tagline">
+          <span class="typewriter">Cybersecurity Researcher&nbsp;·&nbsp;Grad Student&nbsp;·&nbsp;Builder</span>
+        </div>
+        <p class="hero-sub">
+          Securing the systems the world depends on —<br />
+          from software supply chains to autonomous vehicles.
+        </p>
+        <div class="hero-cta-row">
+          <a href="#research" class="btn btn-primary">View Research</a>
+          <a href="https://linkguard.spectator98.com" class="btn btn-violet" target="_blank" rel="noopener">Try LinkGuard <span aria-hidden="true">↗</span></a>
+          <a href="#connect" class="btn btn-ghost">Get In Touch</a>
+        </div>
+        <div class="hero-status">
+          <span class="status-dot hold" aria-hidden="true"></span>
+          <span>Currently: M.S. Candidate in JHU — studying, open to research collaborations</span>
+        </div>
       </div>
-      <p class="hero-sub">
-        Securing the systems the world depends on —<br />
-        from software supply chains to autonomous vehicles.
-      </p>
-      <div class="hero-cta-row">
-        <a href="#research" class="btn btn-primary">View Research</a>
-        <a href="#connect" class="btn btn-ghost">Get In Touch</a>
+
+      <div class="hero-side">
+        <svg class="pulse" viewBox="0 0 520 520" aria-hidden="true">
+          <defs>
+            <radialGradient id="pulseCore">
+              <stop offset="0" stop-color="#00e6ff" stop-opacity="0.35" />
+              <stop offset="1" stop-color="#00e6ff" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+          <circle class="pulse-core" cx="260" cy="260" r="200" fill="url(#pulseCore)" />
+          <circle class="hb" cx="260" cy="260" r="10" fill="none" stroke="#00e6ff" stroke-width="1.5" vector-effect="non-scaling-stroke" />
+          <circle class="hb hb2" cx="260" cy="260" r="10" fill="none" stroke="#a78bfa" stroke-width="1.5" vector-effect="non-scaling-stroke" />
+        </svg>
+
+        <section class="status-window" aria-label="Status window">
+          <div class="status-window-bar">
+            <span>◇ STATUS WINDOW</span>
+            <span class="breathe">ID · ARES</span>
+          </div>
+          <div class="status-id">
+            <div class="avatar-frame">
+              <img src="assets/profile-placeholder.jpg" alt="Ares avatar" width="88" height="88" />
+            </div>
+            <div>
+              <p class="status-id-name">Marwan Aldahmani</p>
+              <p class="status-id-alias">ALIAS · ARES</p>
+            </div>
+          </div>
+          <dl class="status-list">
+            <dt>CLASS</dt><dd>Cybersecurity Researcher</dd>
+            <dt>AFFILIATION</dt><dd>JHU · M.S.S.I. candidate</dd>
+            <dt>FOCUS</dt><dd>Uptane · UAV security · supply chain</dd>
+            <dt>STATUS</dt><dd class="status-hold"><span class="ping-dot" aria-hidden="true"></span>Studying</dd>
+            <dt>OBJECTS</dt>
+            <dd class="status-objects">
+              <a href="https://linkguard.spectator98.com" target="_blank" rel="noopener"><span class="ping-dot" aria-hidden="true"></span>LinkGuard · online</a>
+              <a href="#build-shadow" class="status-hold">Codename Shadow · on hold</a>
+            </dd>
+          </dl>
+        </section>
       </div>
-      <div class="hero-status">
-        <span class="status-dot"></span>
-        <span>Currently: M.S. Candidate in JHU - open to research collaborations</span>
-      </div>
-    </div>
-    <div class="hero-deco">
-      <div class="hex-ring"></div>
-      <div class="hex-ring hex-ring--2"></div>
     </div>
   </section>
 
@@ -65,15 +143,6 @@
       <div class="section-label">// 01 &mdash; ABOUT</div>
       <h2 class="section-title">Who I Am</h2>
       <div class="about-grid">
-        <div class="about-photo-wrap">
-          <div class="photo-frame">
-            <img src="assets/profile-placeholder.jpg" alt="Your Name" class="about-photo" />
-            <div class="photo-corner tl"></div>
-            <div class="photo-corner tr"></div>
-            <div class="photo-corner bl"></div>
-            <div class="photo-corner br"></div>
-          </div>
-        </div>
         <div class="about-text">
           <p>
             I'm a <strong class="accent">graduate student and early-career researcher</strong> working at the intersection of cybersecurity, embedded systems, and autonomous technology. My work centers on making the software systems that power our world — from connected vehicles to critical infrastructure — harder to compromise and easier to trust.
@@ -220,8 +289,8 @@
           </p>
           <div class="tag-row">
             <span class="tag tag--sm">Pentesting</span>
-              <span class="tag tag--sm">Enumeration</span>
-              <span class="tag tag--sm">Vuln Assessment</span>
+            <span class="tag tag--sm">Enumeration</span>
+            <span class="tag tag--sm">Vuln Assessment</span>
           </div>
         </div>
 
@@ -241,10 +310,10 @@
           </div>
         </div>
 
-      <div class="research-card">
+        <div class="research-card">
           <div class="research-card-top">
             <span class="research-icon">⬡</span>
-            <span class="research-badge" style="background:var(--green);color:#07080f;">Upcoming</span>
+            <span class="research-badge research-badge--upcoming">Upcoming</span>
           </div>
           <h3>V2X &amp; Connected Vehicle Security</h3>
           <p>
@@ -284,24 +353,337 @@
     </div>
   </section>
 
-  <!-- CAR BUILDS -->
-  <section class="section section--alt" id="builds">
+  <!-- PROJECTS -->
+  <section class="section section--alt" id="projects">
     <div class="container">
-      <div class="section-label">// 04 &mdash; BUILDS</div>
-      <h2 class="section-title">The Builds</h2>
+      <div class="section-label">// 04 &mdash; PROJECTS</div>
+      <h2 class="section-title">Tools I've Built</h2>
+      <p class="section-intro">
+        Things I've built and put online. They're open source, so you can see exactly how they work.
+      </p>
+
+      <article class="project-card">
+        <div class="project-main">
+          <div class="project-head">
+            <svg class="project-logo" viewBox="0 0 64 64" role="img" aria-label="LinkGuard logo">
+              <polygon points="18,1 46,1 63,18 63,46 46,63 18,63 1,46 1,18" fill="#162231" stroke="#4D6280" stroke-width="2" />
+              <line x1="16" y1="46" x2="30" y2="35" stroke="#9FB0C3" stroke-width="4" stroke-linecap="round" />
+              <circle cx="16" cy="46" r="4" fill="#9FB0C3" />
+              <circle cx="40" cy="26" r="11" fill="none" stroke="#FFB547" stroke-width="5" />
+              <circle cx="40" cy="26" r="3" fill="#FFB547" />
+            </svg>
+            <h3 class="project-name">LinkGuard</h3>
+            <span class="live-tag"><span class="ping-dot" aria-hidden="true"></span>ONLINE</span>
+          </div>
+          <p class="project-desc">
+            A defensive URL and domain scanner. It reads a site's certificate, headers, DNS records and public threat lists, then shows the evidence. It never says a site is safe.
+          </p>
+          <div class="tag-row">
+            <span class="tag tag--sm">Next.js</span>
+            <span class="tag tag--sm">TypeScript</span>
+            <span class="tag tag--sm">Threat Intel</span>
+            <span class="tag tag--sm">SSRF Protection</span>
+            <span class="tag tag--sm">Security Headers</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://linkguard.spectator98.com" class="btn btn-amber" target="_blank" rel="noopener">Open LinkGuard <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/KingAres98/linkguard" class="btn btn-ghost" target="_blank" rel="noopener">Source <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+
+        <div class="project-term" aria-hidden="true">
+          <div class="term-cmd"><span class="term-prompt">&gt;</span> scan example.com</div>
+          <div>› certificate ...... <span class="term-ok">checked</span></div>
+          <div>› headers .......... <span class="term-ok">checked</span></div>
+          <div>› dns records ...... <span class="term-ok">checked</span></div>
+          <div>› threat lists ..... <span class="term-ok">not listed today</span></div>
+          <div class="term-posture">posture: <span class="accent">Good Configuration Observed</span></div>
+          <div>evidence, not verdicts<span class="caret">_</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CAR BUILDS -->
+  <section class="section section--builds" id="builds">
+
+    <!-- Night scene: Shadow drives in the first time this scrolls into view -->
+    <div class="scene" id="buildScene">
+      <svg class="scene-art" viewBox="0 0 1440 560" preserveAspectRatio="xMaxYMax slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="zSky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#07080f" />
+            <stop offset="0.6" stop-color="#0d0b22" />
+            <stop offset="1" stop-color="#1b1338" />
+          </linearGradient>
+          <radialGradient id="zMoon">
+            <stop offset="0" stop-color="#c4b5fd" stop-opacity="0.55" />
+            <stop offset="0.45" stop-color="#a78bfa" stop-opacity="0.18" />
+            <stop offset="1" stop-color="#a78bfa" stop-opacity="0" />
+          </radialGradient>
+          <linearGradient id="zStreet" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#0c0e1e" />
+            <stop offset="1" stop-color="#05060b" />
+          </linearGradient>
+          <linearGradient id="zStreetFade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#05060b" stop-opacity="0" />
+            <stop offset="1" stop-color="#05060b" stop-opacity="0.95" />
+          </linearGradient>
+          <linearGradient id="zBody" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#1c93da" />
+            <stop offset="0.45" stop-color="#0f5f98" />
+            <stop offset="1" stop-color="#062440" />
+          </linearGradient>
+          <linearGradient id="zGlass" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#1d1846" />
+            <stop offset="1" stop-color="#07080f" />
+          </linearGradient>
+          <linearGradient id="zCone" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffb547" stop-opacity="0.22" />
+            <stop offset="1" stop-color="#ffb547" stop-opacity="0" />
+          </linearGradient>
+          <filter id="zSoft" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="3" /></filter>
+          <filter id="zGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="8" /></filter>
+          <filter id="zFogBlur" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="18" /></filter>
+
+          <g id="zWheel">
+            <circle r="42" fill="#05060b" />
+            <circle r="31" fill="#0d1322" stroke="#4f6a94" stroke-width="2" />
+            <rect x="6" y="-27" width="15" height="20" rx="4" fill="#ffb547" opacity="0.9" />
+            <g class="z-spin">
+              <g stroke="#4f6a94" stroke-width="4" stroke-linecap="round">
+                <line x1="0" y1="0" x2="28" y2="0" />
+                <line x1="0" y1="0" x2="8.65" y2="26.63" />
+                <line x1="0" y1="0" x2="-22.65" y2="16.46" />
+                <line x1="0" y1="0" x2="-22.65" y2="-16.46" />
+                <line x1="0" y1="0" x2="8.65" y2="-26.63" />
+              </g>
+              <circle r="6" fill="#1d2a42" />
+            </g>
+          </g>
+
+          <g id="zCar">
+            <ellipse cx="280" cy="170" rx="300" ry="8" fill="#000000" opacity="0.6" />
+            <path d="M6 150 L0 146 L4 138 L10 108 L30 98 L215 86 L285 44 L360 42 L440 72 L520 80 L548 84 L552 96 L550 120 L545 142 L520 150 L485 150 A50 50 0 1 0 395 150 L155 150 A50 50 0 1 0 65 150 Z" fill="url(#zBody)" />
+            <path d="M10 108 L30 98 L215 86 L222 94 L32 106 Z" fill="#0a0d16" />
+            <path d="M232 86 L287 48 L356 46 L424 74 L232 88 Z" fill="url(#zGlass)" />
+            <path d="M252 84 L290 54 L300 54 L264 84 Z" fill="#a78bfa" opacity="0.25" />
+            <line x1="336" y1="47" x2="331" y2="86" stroke="#07080f" stroke-width="5" />
+            <path d="M232 84 L246 79 L250 86 L236 88 Z" fill="#0a0d16" />
+            <path d="M60 112 Q250 104 520 100" fill="none" stroke="#5fc4ff" stroke-opacity="0.35" stroke-width="1.2" />
+            <path d="M228 92 L232 140" stroke="#07080f" stroke-opacity="0.5" stroke-width="1.5" />
+            <path d="M168 114 L182 102 M176 116 L190 104" stroke="#07080f" stroke-width="3" stroke-linecap="round" />
+            <path d="M-4 154 L60 150 L155 150 L155 153 L60 155 Z" fill="#0a0d16" />
+            <path d="M10 108 L30 98 L215 86 L285 44 L360 42 L440 72 L520 80 L548 84" fill="none" stroke="#00e6ff" stroke-opacity="0.55" stroke-width="1.6" />
+            <path d="M492 80 L496 46 L502 46 L500 80 Z" fill="#0a0d16" />
+            <path d="M520 82 L522 46 L528 46 L528 82 Z" fill="#0a0d16" />
+            <path d="M466 46 Q510 34 556 36 L556 43 Q510 42 470 52 Z" fill="#0a0d16" stroke="#00e6ff" stroke-opacity="0.35" />
+            <path d="M548 24 L560 26 L560 52 L548 50 Z" fill="#0a0d16" stroke="#00e6ff" stroke-opacity="0.3" />
+            <ellipse class="z-head" cx="4" cy="110" rx="42" ry="11" fill="#00e6ff" opacity="0.3" filter="url(#zGlow)" />
+            <path class="z-head" d="M8 110 L34 102 L36 106 L10 114 Z" fill="#e6faff" />
+            <ellipse class="z-tail" cx="556" cy="96" rx="30" ry="12" fill="#ff3d9a" opacity="0.4" filter="url(#zGlow)" />
+            <path class="z-tail" d="M546 88 L552 91 L551 102 L546 100 Z" fill="#ff3d9a" />
+            <ellipse class="z-brake" cx="560" cy="96" rx="46" ry="18" fill="#ff3d9a" opacity="0" filter="url(#zGlow)" />
+            <use href="#zWheel" x="110" y="128" />
+            <use href="#zWheel" x="440" y="128" />
+          </g>
+
+          <g id="zRain" stroke="#b8c4ff" stroke-width="1" stroke-linecap="round">
+            <line x1="40" y1="30" x2="36" y2="52" />
+            <line x1="120" y1="210" x2="116" y2="232" />
+            <line x1="185" y1="420" x2="181" y2="442" />
+            <line x1="260" y1="95" x2="256" y2="117" />
+            <line x1="330" y1="300" x2="326" y2="322" />
+            <line x1="395" y1="505" x2="391" y2="527" />
+            <line x1="450" y1="160" x2="446" y2="182" />
+            <line x1="520" y1="370" x2="516" y2="392" />
+            <line x1="590" y1="60" x2="586" y2="82" />
+            <line x1="655" y1="250" x2="651" y2="272" />
+            <line x1="720" y1="460" x2="716" y2="482" />
+            <line x1="790" y1="130" x2="786" y2="152" />
+            <line x1="860" y1="330" x2="856" y2="352" />
+            <line x1="915" y1="540" x2="911" y2="562" />
+            <line x1="980" y1="20" x2="976" y2="42" />
+            <line x1="1045" y1="220" x2="1041" y2="242" />
+            <line x1="1110" y1="410" x2="1106" y2="432" />
+            <line x1="1180" y1="110" x2="1176" y2="132" />
+            <line x1="1240" y1="300" x2="1236" y2="322" />
+            <line x1="1300" y1="480" x2="1296" y2="502" />
+            <line x1="1370" y1="180" x2="1366" y2="202" />
+            <line x1="1420" y1="380" x2="1416" y2="402" />
+            <line x1="75" y1="350" x2="71" y2="372" />
+            <line x1="230" y1="520" x2="226" y2="542" />
+            <line x1="370" y1="20" x2="366" y2="42" />
+            <line x1="610" y1="410" x2="606" y2="432" />
+            <line x1="840" y1="40" x2="836" y2="62" />
+            <line x1="1010" y1="500" x2="1006" y2="522" />
+            <line x1="1150" y1="250" x2="1146" y2="272" />
+            <line x1="1330" y1="60" x2="1326" y2="82" />
+            <line x1="500" y1="250" x2="496" y2="272" />
+            <line x1="700" y1="10" x2="696" y2="32" />
+          </g>
+        </defs>
+
+        <rect width="1440" height="560" fill="url(#zSky)" />
+
+        <circle class="z-moon" cx="560" cy="200" r="150" fill="url(#zMoon)" />
+        <circle class="z-moon" cx="560" cy="200" r="78" fill="none" stroke="#c4b5fd" stroke-opacity="0.35" stroke-width="1" />
+
+        <g fill="#0e1029">
+          <rect x="0" y="300" width="70" height="170" />
+          <rect x="70" y="240" width="50" height="230" />
+          <rect x="120" y="320" width="90" height="150" />
+          <rect x="210" y="210" width="40" height="260" />
+          <rect x="250" y="280" width="80" height="190" />
+          <rect x="330" y="330" width="60" height="140" />
+          <rect x="390" y="260" width="100" height="210" />
+          <rect x="490" y="190" width="50" height="280" />
+          <rect x="540" y="300" width="70" height="170" />
+          <rect x="610" y="230" width="90" height="240" />
+          <rect x="700" y="320" width="40" height="150" />
+          <rect x="740" y="270" width="110" height="200" />
+          <rect x="850" y="170" width="60" height="300" />
+          <rect x="910" y="290" width="80" height="180" />
+          <rect x="990" y="230" width="50" height="240" />
+          <rect x="1040" y="310" width="100" height="160" />
+          <rect x="1140" y="210" width="60" height="260" />
+          <rect x="1200" y="280" width="90" height="190" />
+          <rect x="1290" y="250" width="60" height="220" />
+          <rect x="1350" y="300" width="90" height="170" />
+        </g>
+        <line x1="880" y1="170" x2="880" y2="128" stroke="#1d2a42" stroke-width="2" />
+        <circle class="z-blink" cx="880" cy="126" r="3" fill="#ff3d9a" />
+
+        <g>
+          <rect class="z-win" x="80" y="260" width="5" height="7" fill="#a78bfa" />
+          <rect x="96" y="260" width="5" height="7" fill="#00e6ff" opacity="0.45" />
+          <rect class="z-win" x="80" y="282" width="5" height="7" fill="#ffb547" style="animation-delay: 2s" />
+          <rect x="220" y="232" width="5" height="7" fill="#a78bfa" opacity="0.5" />
+          <rect class="z-win" x="220" y="252" width="5" height="7" fill="#00e6ff" style="animation-delay: 4s" />
+          <rect x="236" y="272" width="5" height="7" fill="#ffb547" opacity="0.45" />
+          <rect x="404" y="280" width="5" height="7" fill="#00e6ff" opacity="0.45" />
+          <rect class="z-win" x="420" y="280" width="5" height="7" fill="#a78bfa" style="animation-delay: 1s" />
+          <rect x="452" y="300" width="5" height="7" fill="#ffb547" opacity="0.5" />
+          <rect x="468" y="320" width="5" height="7" fill="#a78bfa" opacity="0.4" />
+          <rect class="z-win" x="500" y="212" width="5" height="7" fill="#00e6ff" style="animation-delay: 3s" />
+          <rect x="516" y="212" width="5" height="7" fill="#a78bfa" opacity="0.5" />
+          <rect x="500" y="244" width="5" height="7" fill="#ffb547" opacity="0.45" />
+          <rect x="622" y="250" width="5" height="7" fill="#a78bfa" opacity="0.5" />
+          <rect class="z-win" x="640" y="250" width="5" height="7" fill="#00e6ff" style="animation-delay: 5s" />
+          <rect x="658" y="272" width="5" height="7" fill="#a78bfa" opacity="0.4" />
+          <rect x="676" y="300" width="5" height="7" fill="#ffb547" opacity="0.5" />
+          <rect x="754" y="292" width="5" height="7" fill="#00e6ff" opacity="0.45" />
+          <rect class="z-win" x="772" y="292" width="5" height="7" fill="#a78bfa" style="animation-delay: 2.5s" />
+          <rect x="810" y="320" width="5" height="7" fill="#ffb547" opacity="0.45" />
+          <rect x="862" y="192" width="5" height="7" fill="#a78bfa" opacity="0.5" />
+          <rect class="z-win" x="878" y="192" width="5" height="7" fill="#00e6ff" style="animation-delay: 6s" />
+          <rect x="862" y="224" width="5" height="7" fill="#ffb547" opacity="0.45" />
+          <rect x="892" y="256" width="5" height="7" fill="#a78bfa" opacity="0.4" />
+          <rect x="1000" y="252" width="5" height="7" fill="#00e6ff" opacity="0.45" />
+          <rect class="z-win" x="1016" y="276" width="5" height="7" fill="#ffb547" style="animation-delay: 1.5s" />
+          <rect x="1152" y="232" width="5" height="7" fill="#a78bfa" opacity="0.5" />
+          <rect x="1168" y="232" width="5" height="7" fill="#00e6ff" opacity="0.4" />
+          <rect class="z-win" x="1152" y="264" width="5" height="7" fill="#a78bfa" style="animation-delay: 3.5s" />
+          <rect x="1302" y="272" width="5" height="7" fill="#ffb547" opacity="0.45" />
+          <rect x="1318" y="296" width="5" height="7" fill="#00e6ff" opacity="0.4" />
+        </g>
+
+        <ellipse class="z-fog" cx="720" cy="452" rx="900" ry="34" fill="#a78bfa" opacity="0.08" filter="url(#zFogBlur)" />
+
+        <g fill="#080a16">
+          <rect x="0" y="300" width="150" height="170" />
+          <rect x="150" y="330" width="70" height="140" />
+          <rect x="1330" y="120" width="110" height="350" />
+        </g>
+        <rect x="30" y="330" width="10" height="14" fill="#ffb547" opacity="0.35" />
+        <rect x="100" y="362" width="10" height="14" fill="#00e6ff" opacity="0.3" />
+
+        <g class="z-neon">
+          <rect x="1356" y="150" width="36" height="156" fill="#07080f" stroke="#00e6ff" stroke-width="1.5" />
+          <rect x="1356" y="150" width="36" height="156" fill="none" stroke="#00e6ff" stroke-width="6" opacity="0.35" filter="url(#zGlow)" />
+          <g font-family="'Chakra Petch', sans-serif" font-weight="700" font-size="26" fill="#00e6ff" text-anchor="middle">
+            <text x="1374" y="186">A</text>
+            <text x="1374" y="222">R</text>
+            <text x="1374" y="258">E</text>
+            <text x="1374" y="294">S</text>
+          </g>
+        </g>
+
+        <g class="z-lamp">
+          <polygon points="652,304 700,304 770,470 590,470" fill="url(#zCone)" />
+        </g>
+        <line x1="640" y1="470" x2="640" y2="296" stroke="#1d2a42" stroke-width="4" />
+        <path d="M640 298 H684" stroke="#1d2a42" stroke-width="4" fill="none" />
+        <rect class="z-lamp" x="666" y="298" width="22" height="6" rx="2" fill="#ffd28a" />
+
+        <rect x="0" y="470" width="1440" height="90" fill="url(#zStreet)" />
+        <line x1="0" y1="470.5" x2="1440" y2="470.5" stroke="#1d2a42" />
+        <line x1="0" y1="540" x2="1440" y2="540" stroke="#1d2a42" stroke-dasharray="40 30" />
+
+        <rect class="z-neon" x="1360" y="474" width="28" height="70" fill="#00e6ff" opacity="0.16" filter="url(#zSoft)" />
+        <ellipse class="z-moon" cx="560" cy="505" rx="70" ry="9" fill="#a78bfa" opacity="0.12" filter="url(#zSoft)" />
+        <ellipse class="z-lamp" cx="680" cy="490" rx="70" ry="8" fill="#ffb547" opacity="0.12" filter="url(#zSoft)" />
+
+        <g transform="translate(0 940) scale(1 -1)" opacity="0.2" filter="url(#zSoft)">
+          <g class="z-drive"><use href="#zCar" x="760" y="300" /></g>
+        </g>
+        <rect x="0" y="470" width="1440" height="90" fill="url(#zStreetFade)" />
+
+        <g class="z-drive"><use href="#zCar" x="760" y="300" /></g>
+
+        <g class="z-tag">
+          <path d="M1080 340 V292" stroke="#ffb547" stroke-width="1" stroke-dasharray="3 4" />
+          <rect x="1077" y="337" width="6" height="6" fill="#ffb547" transform="rotate(45 1080 340)" />
+          <rect x="990" y="236" width="196" height="56" fill="#0e0c20" fill-opacity="0.85" stroke="#ffb547" stroke-opacity="0.7" />
+          <text x="1004" y="259" font-family="'Chakra Petch', sans-serif" font-weight="700" font-size="15" fill="#ffffff">SHADOW · ZL1</text>
+          <text x="1004" y="279" font-family="'Geist Mono', monospace" font-size="12" fill="#ffb547">STATUS: ON HOLD</text>
+        </g>
+
+        <g fill="none" stroke="#b8c4ff" stroke-width="1">
+          <ellipse class="z-rip" cx="300" cy="520" rx="14" ry="3" />
+          <ellipse class="z-rip" cx="620" cy="505" rx="14" ry="3" style="animation-delay: .7s" />
+          <ellipse class="z-rip" cx="880" cy="548" rx="14" ry="3" style="animation-delay: 1.3s" />
+          <ellipse class="z-rip" cx="1180" cy="535" rx="14" ry="3" style="animation-delay: .4s" />
+          <ellipse class="z-rip" cx="150" cy="540" rx="14" ry="3" style="animation-delay: 1.8s" />
+        </g>
+
+        <g opacity="0.3">
+          <g class="z-rain1">
+            <use href="#zRain" />
+            <use href="#zRain" y="-560" />
+          </g>
+        </g>
+        <g opacity="0.16">
+          <g class="z-rain2">
+            <use href="#zRain" x="23" />
+            <use href="#zRain" x="23" y="-560" />
+          </g>
+        </g>
+      </svg>
+
+      <div class="container scene-head">
+        <div class="section-label">// 05 &mdash; BUILDS</div>
+        <h2 class="section-title">The Builds</h2>
+        <p class="scene-note">// Shadow is parked until I'm back from studying</p>
+      </div>
+    </div>
+
+    <div class="container">
       <p class="section-intro">
         Cars are where I apply the same obsessive, systematic energy I bring to research. Every build has a concept, a codename, and a story. Here are mine.
       </p>
 
       <!-- BUILD 01: SHADOW -->
-      <div class="build-block">
+      <div class="build-block" id="build-shadow">
         <div class="build-block-header">
           <div>
             <span class="build-codename">CODENAME: <span class="accent">SHADOW</span></span>
             <h3 class="build-title">2020 Chevrolet Camaro ZL1</h3>
           </div>
-          <span class="build-status-badge active">[ ACTIVE BUILD ]</span>
+          <span class="build-status-badge hold"><span class="ping-dot" aria-hidden="true"></span>[ ON HOLD ]</span>
         </div>
+
+        <p class="build-hold-note">Paused while I'm away studying. The build picks back up when I'm home.</p>
 
         <div class="builds-layout">
           <div class="build-main-image">
@@ -342,7 +724,7 @@
             </div>
             <div class="spec-block">
               <span class="spec-label">BUILD STAGE</span>
-              <span class="spec-value accent">[ IN PROGRESS ]</span>
+              <span class="spec-value accent-amber">[ ON HOLD ]</span>
             </div>
 
             <div class="build-mods">
@@ -392,7 +774,7 @@
       <div class="build-divider"></div>
 
       <!-- BUILD 02: MUSHIN -->
-      <div class="build-block">
+      <div class="build-block" id="build-mushin">
         <div class="build-block-header">
           <div>
             <span class="build-codename">CODENAME: <span class="accent-green">MUSHIN</span></span>
@@ -436,7 +818,7 @@
             </div>
             <div class="spec-block">
               <span class="spec-label">STATUS</span>
-              <span class="spec-value" style="color:var(--text-muted);">Sold — Project Closed</span>
+              <span class="spec-value spec-value--muted">Sold — Project Closed</span>
             </div>
 
             <div class="build-mods">
@@ -483,7 +865,7 @@
       <!-- NEXT UP -->
       <div class="next-build">
         <span class="build-codename">WHAT'S NEXT</span>
-        <h3 class="build-title" style="color:var(--text-muted);">TBD — Chapter Three</h3>
+        <h3 class="build-title build-title--muted">TBD — Chapter Three</h3>
         <p class="build-story">
           The next build is unwritten. A new overlander to carry Mushin's legacy, or a classic — American muscle or Japanese icon — stripped back and rebuilt right. The concept exists. The timing doesn't yet. Stay tuned.
         </p>
@@ -499,9 +881,9 @@
   </section>
 
   <!-- HOBBIES -->
-  <section class="section" id="hobbies">
+  <section class="section section--alt" id="hobbies">
     <div class="container">
-      <div class="section-label">// 05 &mdash; OUTSIDE THE LAB</div>
+      <div class="section-label">// 06 &mdash; OUTSIDE THE LAB</div>
       <h2 class="section-title">Life Beyond Research</h2>
       <p class="section-intro">
         I'm a firm believer that the best researchers are well-rounded humans. Here's what keeps me grounded, curious, and occasionally sleep-deprived.
@@ -550,9 +932,9 @@
   </section>
 
   <!-- CONNECT -->
-  <section class="section section--alt" id="connect">
+  <section class="section" id="connect">
     <div class="container">
-      <div class="section-label">// 06 &mdash; CONNECT</div>
+      <div class="section-label">// 07 &mdash; CONNECT</div>
       <h2 class="section-title">Let's Talk</h2>
       <p class="section-intro">
         Whether you're a researcher, a recruiter, a car person, or just someone who found this page — I'm always open to a good conversation. Reach out through any of the channels below.
@@ -636,6 +1018,7 @@
               <span class="social-platform">MyAnimeList</span>
               <span class="social-handle">Spectator267</span>
               <span class="social-arrow">→</span>
+            </a>
 
             <a href="https://steamcommunity.com/profiles/76561199152013232/" class="social-item" target="_blank" rel="noopener">
               <span class="social-platform">Steam</span>
@@ -647,7 +1030,7 @@
 
           <div class="email-block">
             <p class="email-label">Academic / Research Inquiries</p>
-            <a href="mailto:maldahm1@jh.edu" class="email-addr accent" style="text-decoration:none;">maldahm1@jh.edu</a>
+            <a href="mailto:maldahm1@jh.edu" class="email-addr accent">maldahm1@jh.edu</a>
           </div>
         </div>
 
@@ -662,7 +1045,7 @@
         <span class="footer-logo">// <span class="accent">ARES</span></span>
         <p class="footer-copy">
           If you're here, can you prove you're really here?<br />
-          <span class="accent">[ SYSTEM ONLINE ]</span>
+          <span class="footer-online"><span class="ping-dot" aria-hidden="true"></span>[ SYSTEM ONLINE ]</span>
         </p>
         <p class="footer-legal">© 2025 Marwan Aldahmani. All rights reserved.</p>
       </div>
@@ -670,25 +1053,51 @@
   </footer>
 
   <script>
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // NAV scroll behavior
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('nav--scrolled', window.scrollY > 40);
-    });
+    }, { passive: true });
 
     // Mobile nav toggle
     const toggle = document.getElementById('navToggle');
     const links = document.getElementById('navLinks');
     toggle.addEventListener('click', () => {
-      links.classList.toggle('nav-links--open');
-      toggle.classList.toggle('active');
+      const open = links.classList.toggle('nav-links--open');
+      toggle.classList.toggle('active', open);
+      toggle.setAttribute('aria-expanded', String(open));
     });
 
-    // Close nav on link click
+    // Projects dropdown (desktop). On phones it is shown as part of the menu.
+    const drop = document.getElementById('projectsDrop');
+    const dropToggle = document.getElementById('projectsToggle');
+    function setDrop(open) {
+      drop.classList.toggle('is-open', open);
+      dropToggle.setAttribute('aria-expanded', String(open));
+    }
+    dropToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setDrop(!drop.classList.contains('is-open'));
+    });
+    document.addEventListener('click', (e) => {
+      if (!drop.contains(e.target)) setDrop(false);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drop.classList.contains('is-open')) {
+        setDrop(false);
+        dropToggle.focus();
+      }
+    });
+
+    // Close menus on link click
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         links.classList.remove('nav-links--open');
         toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        setDrop(false);
       });
     });
 
@@ -702,15 +1111,23 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.timeline-card, .research-card, .hobby-card, .gallery-item, .tool-item').forEach(el => {
+    document.querySelectorAll('.timeline-card, .research-card, .project-card, .hobby-card, .gallery-item, .tool-item').forEach(el => {
       el.classList.add('reveal');
       observer.observe(el);
     });
 
-    // Form placeholder
-    function handleForm(e) {
-      e.preventDefault();
-      alert('Form submitted! Replace this with Formspree or Netlify Forms to receive real messages.');
+    // Builds scene: Shadow drives in the first time the scene scrolls into
+    // view. Without JavaScript, or with reduced motion, the car is already parked.
+    const scene = document.getElementById('buildScene');
+    if (scene && 'IntersectionObserver' in window) {
+      if (!reduceMotion) scene.classList.add('scene--armed');
+      const sceneObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          scene.classList.toggle('is-paused', !e.isIntersecting);
+          if (e.isIntersecting && e.intersectionRatio >= 0.35) scene.classList.add('is-arrived');
+        });
+      }, { threshold: [0, 0.35] });
+      sceneObserver.observe(scene);
     }
   </script>
 
